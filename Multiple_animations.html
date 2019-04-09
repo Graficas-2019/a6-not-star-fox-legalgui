@@ -1,0 +1,141 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Three.js Morph targets</title>
+
+<link rel="stylesheet" href="../libs/jquery-ui/jquery-ui.css" />
+<link rel="stylesheet" href="../libs/colorpicker/css/colorpicker.css" />
+<link rel="stylesheet" href="./css/main.css" />
+<link rel="stylesheet" href="./css/threejsshadows.css" />
+
+<script src="../libs/jquery-3.3.1/jquery-3.3.1.js"></script>
+<script src="../libs/jquery-ui/jquery-ui.js"></script>
+
+<script src="../libs/three.js/three.js"></script>
+<script src="../libs/three.js/controls/OrbitControls.js"></script>
+<script src="../libs/colorpicker/js/colorpicker.js"></script>
+
+<script src="../libs/three.js/loaders/GLTFLoader.js"></script>
+
+<script src="../libs/keyframe.js/keyframe.js"></script>
+<link rel="stylesheet" href="./css/keyframeanimation.css" />
+<script src="../libs/tween.js/tween.js"></script>
+<script src="../libs/three.js/utils/cloneFBX.js"></script>
+
+<script src="../libs/three.js/loaders/inflate.min.js"></script>
+<script src="../libs/three.js/loaders/FBXLoader.js"></script>
+<script src="../libs/three.js/loaders/OBJLoader.js"></script>
+
+<script src="Multiple_animations.js"></script>
+
+<script type="text/javascript">
+
+
+function initControls()
+{
+    $("input[name=start]").click(
+		function(){
+            start()               
+        }
+    );
+
+    $(document).on('keydown',function(e) 
+				{
+					switch(e.which){
+						// Up
+						case 38:
+						upHit = true;
+        				upMove = 0.05;
+						break;
+						// Down
+						case 40:
+						downHit = true;
+        				downMove = -0.05;
+						break;
+						// Right
+						case 39:
+						rightHit = true;
+        				rightMove = 0.05;
+						break;
+						// Left
+						case 37:
+						leftHit = true;
+	        			leftMove = -0.05;
+						break;
+					}
+				});
+
+				$(document).on('keyup',function(e) 
+				{
+					switch(e.which){
+						// Up
+						case 38:
+						upHit = false;
+						break;
+						// Down
+						case 40:
+						downHit = false;
+						break;
+						// Right
+						case 39:
+						rightHit = false;
+						break;
+						// Left
+						case 37:
+						leftHit = false;
+						break;
+						// Shoot
+						case 32:
+						spawnBullet();
+						break;
+					}
+				});
+}
+
+</script>
+
+<script type="text/javascript">
+  
+	$(document).ready(
+			function() {
+
+				var canvas = document.getElementById("webglcanvas");
+
+				// create the scene
+				createScene(canvas);
+
+				// initialize the controls
+				initControls();
+
+				// play the animations
+				playAnimations();
+
+		        // Run the run loop
+				run();
+				
+			}
+	);
+
+</script>
+
+</head>
+
+<body>
+
+<div id="container">
+    <canvas id="webglcanvas"></canvas>
+	<div id="title">Help us save the planet!</div>
+	<div id="life">Health: 100</div>
+	<div id="time">Time: 60</div>
+	<div id="highscore">Highscore: 0</div>
+	<div id="score">Score: 0</div>
+	<input id="startButton" type="button" name="start" value="start game"> 
+</div>
+
+
+
+
+</body>
+
+
+</html>

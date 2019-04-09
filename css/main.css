@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+* {
+    font-family: Arial;
+    font-size:20px;
+	font-style: italic;
+	margin: 0;
+}
+
+body {
+	color:rgb(10, 0, 0);
+}
+
+#container {
+	position:fixed;
+}
+
+#title{
+	color:white;
+}
+#score{
+	color:white;
+}
+#highscore{
+	color:white;
+}
+#legend{
+	color:black;
+}
+#life{
+	color:white;
+}
+#time{
+	color:white;
+}
+#webglcanvas {
+	border:none;
+	background-color:#ffffff;
+}
+
